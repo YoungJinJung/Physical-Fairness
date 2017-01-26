@@ -29,7 +29,7 @@ void RxCallback (Ptr<CounterCalculator<uint32_t> > datac,std::string path,Ptr<co
 
 int main (int argc, char *argv[]){
 
-		int t = 0;
+		int t = 4;
 		DataRate linkRate("100Mbps");
 
 		// experiment variables
@@ -37,14 +37,14 @@ int main (int argc, char *argv[]){
 		float base_dist = 20.0;
 		float u_dist = 25.0;
 		int retryLimit = 7;
-		int queueSizePerNode = 100000;
+		int queueSizePerNode = 5000;
 		float delayPerNode = 3.0;
 		float simulationTime = 30.0;
 
 		// traffic parameters
   		uint32_t MaxPacketSize = 1024;
-  		uint32_t interPacketInterval = 3000;  // in MicroSeconds
-  		uint32_t maxPacketCount = 100000;
+  		uint32_t interPacketInterval = 2500;  // in MicroSeconds
+  		uint32_t maxPacketCount = 10000000;
 
 
 		//float fiarray[5] = {0.0,};
@@ -400,6 +400,5 @@ int main (int argc, char *argv[]){
 
 
 }
-
 
 
