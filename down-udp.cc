@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
 #include "ns3/core-module.h"
 #include "ns3/applications-module.h"
 #include "ns3/internet-module.h"
@@ -31,7 +30,7 @@ void TxCallback (Ptr<CounterCalculator<uint32_t> > datac,std::string path,Ptr<co
 
 int main (int argc, char *argv[]){
 
-		int t = 0;
+		int t = 4;
 		DataRate linkRate("100Mbps");
 
 		// experiment variables
@@ -39,13 +38,13 @@ int main (int argc, char *argv[]){
 		float base_dist = 20.0;
 		float u_dist = 25.0;
 		int retryLimit = 7;
-		uint32_t queueSizePerNode = 100000000;
+		uint32_t queueSizePerNode = 5000;
 		float delayPerNode = 3.0;
 		float simulationTime = 30.0;
 
 		// traffic parameters
   		uint32_t MaxPacketSize = 1024;
-  		uint32_t interPacketInterval = 3000;  // in MicroSeconds
+  		uint32_t interPacketInterval = 6000;  // in MicroSeconds
   		uint32_t maxPacketCount = 10000000;
 
 
@@ -178,8 +177,8 @@ int main (int argc, char *argv[]){
 			double time[nNode];
 
 			//unduplicated time setting of 4 nodes 
-			//for(int k = nNode-1 ; k >= 0 ; k--){
-			for(int k = 0 ; k < nNode ; k++){
+			for(int k = nNode-1 ; k >= 0 ; k--){
+			//for(int k = 0 ; k < nNode ; k++){
 			   if ( (k == t) || (t>3) ) { 
 				int rv = rand()%(interPacketInterval);
 				time[k] = start_time + static_cast<double> (rv) ;
@@ -403,6 +402,5 @@ int main (int argc, char *argv[]){
 
 
 }
-
 
 
